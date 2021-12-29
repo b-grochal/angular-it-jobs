@@ -12,4 +12,8 @@ export class JobsService {
   getJobs(): Observable<Job[]> {
     return this.http.get<Job[]>('http://127.0.0.1:8000/api/jobs/');
   }
+
+  getJobDetails(id: string): Observable<Job> {
+    return this.http.get<Job>('http://127.0.0.1:8000/api/jobs/' + id);
+  }
 }
