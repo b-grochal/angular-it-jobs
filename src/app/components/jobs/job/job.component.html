@@ -1,1 +1,10 @@
-<p>job works!</p>
+<div class="card w-100">
+  <div class="card-body">
+    <h5 class="card-title">{{ job.name }}}}</h5>
+    <p class="card-text">
+      {{ job.company_name }} - {{ job.salary }} - {{ job.work_type }} -
+      {{ job.city }} - {{ job.country }}
+    </p>
+    <button class="btn btn-primary" (click)="onJobDetails()">Details</button>
+  </div>
+</div>

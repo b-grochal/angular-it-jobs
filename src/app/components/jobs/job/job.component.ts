@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Job } from 'src/app/models/job';
 
 @Component({
   selector: 'app-job',
   templateUrl: './job.component.html',
-  styleUrls: ['./job.component.css']
+  styleUrls: ['./job.component.css'],
 })
 export class JobComponent implements OnInit {
+  @Input() job: any;
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onJobDetails(): void {
+    this.router.navigate(['jobs', this.job.id]);
   }
-
 }

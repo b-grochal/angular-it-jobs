@@ -1,5 +1,5 @@
 export interface Job {
-  pk: number;
+  id: number;
   name: string;
   salary: string;
   work_type: string;
