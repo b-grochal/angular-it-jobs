@@ -25,6 +25,7 @@ export class JobDetailsPageComponent implements OnInit {
     this.jobsService.getJobDetails(id).subscribe(
       (job: Job) => {
         this.job = job;
+        console.log(this.job);
       },
       (error: string) => {
         console.log(error);
