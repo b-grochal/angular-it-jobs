@@ -12,6 +12,8 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { LoginFormComponent } from './components/auth/login-form/login-form.component';
 import { RegistrationFormComponent } from './components/auth/registration-form/registration-form.component';
 import { JobComponent } from './components/jobs/job/job.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -26,8 +28,17 @@ import { JobComponent } from './components/jobs/job/job.component';
     RegistrationFormComponent,
     JobComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
