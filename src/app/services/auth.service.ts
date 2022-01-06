@@ -21,7 +21,7 @@ export class AuthService {
 
   login(formData: any) {
     return this.http
-      .post<LoginResponse>('http://127.0.0.1:8000/api/jobs/', formData)
+      .post<LoginResponse>('http://127.0.0.1:8000/api/auth/login/', formData)
       .pipe(
         catchError(this.handleError),
         tap((responseData) => {

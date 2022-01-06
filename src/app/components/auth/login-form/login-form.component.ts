@@ -26,7 +26,7 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required]],
     });
   }
 
@@ -46,8 +46,6 @@ export class LoginFormComponent implements OnInit {
           console.log('Error');
         }
       );
-
-      alert('SUCCESS!! :-)');
     }
   }
 }

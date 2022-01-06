@@ -1,1 +1,17 @@
-<p>job-details-page works!</p>
+<div class="row border-bottom mt-2 pb-2">
+  <h4>{{ job.name }}</h4>
+</div>
+<div class="row pt-3">
+  <div class="col-6">
+    <div class="project-info-box">
+      <p><b>Salary:</b> {{ job.salary }}</p>
+      <p><b>Work type:</b> {{ job.work_type }}</p>
+      <p><b>Company:</b> {{ job.company_name }}</p>
+      <p><b>City:</b> {{ job.city }}</p>
+      <p><b>Country:</b> {{ job.country }}</p>
+    </div>
+  </div>
+  <div class="col-6">
+    {{ job.description }}
+  </div>
+</div>
