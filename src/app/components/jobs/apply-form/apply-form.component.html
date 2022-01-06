@@ -1,0 +1,130 @@
+<form [formGroup]="applyForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>First name</label>
+    <input
+      type="text"
+      formControlName="first_name"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && form['first_name'].errors
+      }"
+    />
+    <div
+      *ngIf="submitted && form['first_name'].errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="form['first_name'].errors['required']">
+        First name is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Last name</label>
+    <input
+      type="text"
+      formControlName="last_name"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && form['last_name'].errors
+      }"
+    />
+    <div *ngIf="submitted && form['last_name'].errors" class="invalid-feedback">
+      <div *ngIf="form['last_name'].errors['required']">
+        Last name is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input
+      type="text"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && form['email'].errors
+      }"
+    />
+    <div *ngIf="submitted && form['email'].errors" class="invalid-feedback">
+      <div *ngIf="form['email'].errors['required']">Email is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Phone number</label>
+    <input
+      type="text"
+      formControlName="phone_number"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && form['phone_number'].errors
+      }"
+    />
+    <div
+      *ngIf="submitted && form['phone_number'].errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="form['phone_number'].errors['required']">
+        Phone number is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>City of residence</label>
+    <input
+      type="text"
+      formControlName="city_of_residence"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && form['city_of_residence'].errors
+      }"
+    />
+    <div
+      *ngIf="submitted && form['city_of_residence'].errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="form['city_of_residence'].errors['required']">
+        City of residence is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Country of residence</label>
+    <input
+      type="text"
+      formControlName="country_of_residence"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid': submitted && form['country_of_residence'].errors
+      }"
+    />
+    <div
+      *ngIf="submitted && form['country_of_residence'].errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="form['country_of_residence'].errors['required']">
+        Country of residence is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Personal description</label>
+    <textarea
+      formControlName="personal_description"
+      class="form-control"
+      rows="5"
+      [ngClass]="{
+        'is-invalid': submitted && form['personal_description'].errors
+      }"
+    ></textarea>
+    <div
+      *ngIf="submitted && form['personal_description'].errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="form['personal_description'].errors['required']">
+        Personal description of residence is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group mt-2">
+    <button class="btn btn-primary w-100">Apply</button>
+  </div>
+</form>
