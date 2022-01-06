@@ -14,6 +14,7 @@ import { RegistrationFormComponent } from './components/auth/registration-form/r
 import { JobComponent } from './components/jobs/job/job.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { ApplicationPageComponent } from './pages/application-page/application-page.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     LoginFormComponent,
     RegistrationFormComponent,
     JobComponent,
+    ApplicationPageComponent,
   ],
   imports: [
     BrowserModule,

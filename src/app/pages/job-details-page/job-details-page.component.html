@@ -1,5 +1,8 @@
 <div class="row border-bottom mt-2 pb-2">
-  <h4>{{ job.name }}</h4>
+  <div class="col-12 d-flex justify-content-between">
+    <h4>{{ job.name }}</h4>
+    <button class="btn btn-primary" (click)="apply()">Apply</button>
+  </div>
 </div>
 <div class="row pt-3">
   <div class="col-6">
