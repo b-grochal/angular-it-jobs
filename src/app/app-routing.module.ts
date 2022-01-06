@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { ApplicationPageComponent } from './pages/application-page/application-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { JobDetailsPageComponent } from './pages/job-details-page/job-details-page.component';
@@ -11,12 +12,17 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'jobs', component: JobsPageComponent },
   { path: 'jobs/:id', component: JobDetailsPageComponent },
-  { path: 'jobs/:id/apply', component: ApplicationPageComponent },
+  {
+    path: 'jobs/:id/apply',
+    component: ApplicationPageComponent,
+    canActivate: [AuthGuardGuard],
+  },
   { path: 'login', component: LoginPageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [AuthGuardGuard],
 })
 export class AppRoutingModule {}

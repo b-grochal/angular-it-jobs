@@ -17,6 +17,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { ApplicationPageComponent } from './pages/application-page/application-page.component';
 import { ApplyFormComponent } from './components/jobs/apply-form/apply-form.component';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
+import { AuthGuardGuard } from './guards/auth-guard.guard';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { AuthInterceptorService } from './interceptors/auth-interceptor.service'
       useClass: AuthInterceptorService,
       multi: true,
     },
+    AuthGuardGuard,
   ],
   bootstrap: [AppComponent],
 })
