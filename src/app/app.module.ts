@@ -19,6 +19,8 @@ import { ApplyFormComponent } from './components/jobs/apply-form/apply-form.comp
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { RegistrationPageComponent } from './pages/registration-page/registratio
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JobsService } from 'src/app/services/jobs.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-apply-form',
@@ -22,7 +23,8 @@ export class ApplyFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private jobsService: JobsService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private notificationsService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -48,10 +50,14 @@ export class ApplyFormComponent implements OnInit {
     if (this.applyForm.valid) {
       this.jobsService.apply(id, this.applyForm.value).subscribe(
         (result: any) => {
-          this.router.navigate(['home']);
+          this.router.navigate(['jobs']);
+          this.notificationsService.showSuccessNotification(
+            'You have successfully applied for the job!',
+            'Success'
+          );
         },
         (error: string) => {
-          console.log('Error');
+          this.notificationsService.showErrorNotification(error, 'Error');
         }
       );
     }

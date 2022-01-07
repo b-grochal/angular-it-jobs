@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-login-form',
@@ -20,7 +21,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private notificationsService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -41,9 +43,13 @@ export class LoginFormComponent implements OnInit {
       this.authService.login(this.loginForm.value).subscribe(
         (result: any) => {
           this.router.navigate(['home']);
+          this.notificationsService.showSuccessNotification(
+            'Logged in sucessfully!',
+            'Success'
+          );
         },
         (error: string) => {
-          console.log('Error');
+          this.notificationsService.showErrorNotification(error, 'Error');
         }
       );
     }

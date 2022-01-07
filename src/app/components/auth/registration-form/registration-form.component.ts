@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import Validation from 'src/app/utils/validation';
 
 @Component({
@@ -21,7 +22,8 @@ export class RegistrationFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private notificationsService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -49,9 +51,13 @@ export class RegistrationFormComponent implements OnInit {
       this.authService.register(this.registrationForm.value).subscribe(
         (result: any) => {
           this.router.navigate(['home']);
+          this.notificationsService.showSuccessNotification(
+            'Registered sucessfully!',
+            'Success'
+          );
         },
         (error: string) => {
-          console.log('Error');
+          this.notificationsService.showErrorNotification(error, 'Error');
         }
       );
     }
