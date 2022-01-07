@@ -30,6 +30,10 @@ export class AuthService {
       );
   }
 
+  register(formData: any) {
+    return this.http.post('http://127.0.0.1:8000/api/auth/register/', formData);
+  }
+
   private handleLogin(token: string) {
     const expirationDate =
       this.jwtHelperService.getTokenExpirationDate(token) ?? new Date();

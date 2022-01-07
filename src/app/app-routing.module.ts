@@ -6,6 +6,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { JobDetailsPageComponent } from './pages/job-details-page/job-details-page.component';
 import { JobsPageComponent } from './pages/jobs-page/jobs-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
     canActivate: [AuthGuardGuard],
   },
   { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegistrationPageComponent },
 ];
 
 @NgModule({

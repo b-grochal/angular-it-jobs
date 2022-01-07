@@ -18,6 +18,7 @@ import { ApplicationPageComponent } from './pages/application-page/application-p
 import { ApplyFormComponent } from './components/jobs/apply-form/apply-form.component';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
+import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AuthGuardGuard } from './guards/auth-guard.guard';
     JobComponent,
     ApplicationPageComponent,
     ApplyFormComponent,
+    RegistrationPageComponent,
   ],
   imports: [
     BrowserModule,
